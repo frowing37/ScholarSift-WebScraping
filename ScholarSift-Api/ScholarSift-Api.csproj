@@ -9,11 +9,13 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14"/>
+        <PackageReference Include="MongoDB.Bson" Version="2.24.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
+      <ProjectReference Include="..\ScholarSift-Data\ScholarSift-Data.csproj" />
+      <ProjectReference Include="..\ScholarSift-Entity\ScholarSift-Entity.csproj" />
     </ItemGroup>
 
 </Project>

@@ -26,7 +26,14 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/frowing/Projects/ScholarSift/ScholarSift-Data/ScholarSift-Data.csproj": {
+                "projectPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Data/ScholarSift-Data.csproj"
+              },
+              "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj": {
+                "projectPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -42,6 +49,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.14, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.24.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -63,6 +74,136 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/frowing/Projects/ScholarSift/ScholarSift-Data/ScholarSift-Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/frowing/Projects/ScholarSift/ScholarSift-Data/ScholarSift-Data.csproj",
+        "projectName": "ScholarSift-Data",
+        "projectPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Data/ScholarSift-Data.csproj",
+        "packagesPath": "/Users/frowing/.nuget/packages/",
+        "outputPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/frowing/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj": {
+                "projectPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.0-preview.1.24080.9, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj",
+        "projectName": "ScholarSift-Entity",
+        "projectPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/ScholarSift-Entity.csproj",
+        "packagesPath": "/Users/frowing/.nuget/packages/",
+        "outputPath": "/Users/frowing/Projects/ScholarSift/ScholarSift-Entity/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/frowing/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
