@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScholarSift-Entity", "Schol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScholarSift-Data", "ScholarSift-Data\ScholarSift-Data.csproj", "{1933A4B6-AA1E-4F7A-BB14-2290C7D00CF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScholarSift-UI", "ScholarSift-UI\ScholarSift-UI.csproj", "{F03F6A7A-98CD-4012-99A7-B10315A2D36B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{1933A4B6-AA1E-4F7A-BB14-2290C7D00CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1933A4B6-AA1E-4F7A-BB14-2290C7D00CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1933A4B6-AA1E-4F7A-BB14-2290C7D00CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03F6A7A-98CD-4012-99A7-B10315A2D36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03F6A7A-98CD-4012-99A7-B10315A2D36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03F6A7A-98CD-4012-99A7-B10315A2D36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03F6A7A-98CD-4012-99A7-B10315A2D36B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

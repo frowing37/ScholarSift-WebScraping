@@ -1,0 +1,108 @@
+@{
+    Layout = null;
+}
+
+@model MainSearchDto
+
+<body>
+    <div class="back">
+        <div class="card">
+            <div class="card-content">
+                <h1 id="title">Scholar Sift</h1>
+            </div>
+            <div class="card-content">
+                <label id="description">" Makale Ara, Filtrele "</label>
+            </div>
+            <div class="card-content">
+                <div class="search-bar-card">
+                    <form asp-controller="Home" asp-action="MainSearch" method="post">
+                        <input id="search-bar" type="text" asp-for="SearchText" placeholder="Ara...">
+                        <button id="search-button" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(247, 99, 7, 1);"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path><path d="M11.412 8.586c.379.38.588.882.588 1.414h2a3.977 3.977 0 0 0-1.174-2.828c-1.514-1.512-4.139-1.512-5.652 0l1.412 1.416c.76-.758 2.07-.756 2.826-.002z"></path></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+
+<style>
+    body {
+        background-image: linear-gradient(45deg, #a0ebdc, #eba57a);
+        margin: 0; /* Sayfanın kenar boşluklarını kaldırır */
+        height: 100vh; /* Sayfanın tamamını kaplar */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .back {
+        background-image: linear-gradient(45deg, #f76307, #57d9bf);
+        height: auto;
+        width: 650px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        opacity: 0.8;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .card {
+        height: 300px;
+        width: auto;
+        display: flex;
+        margin-bottom: 10px;
+        flex-direction: column; /* İçerikleri dikey hizalamak için */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-bar-card {
+        /* İstediğiniz stil özelliklerini buraya ekleyin */
+        margin-top: 40px;
+    }
+    #search-bar {
+        height: 60px;
+        width: 500px;
+        border-radius: 60px;
+        display: inline-block;
+        vertical-align: middle;
+        border: none;
+        font-size:larger;
+        padding-left: 25px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+    #search-bar:focus{
+        outline:none;
+        border: 2px solid #57d9bf; 
+    }
+    #search-button {
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        margin-left: 5px;
+        border: none;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: white;
+        text-align: center;
+    }
+    #search-button:hover{
+        border: 2px solid #57d9bf;
+    }
+    #title {
+        margin-top: -30px;
+        color: white;
+        font-weight: bolder;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+    #description{
+        color: white;
+        font-weight: 500;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+</style>

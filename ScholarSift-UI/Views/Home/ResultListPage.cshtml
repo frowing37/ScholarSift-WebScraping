@@ -1,0 +1,186 @@
+@{
+    Layout = null;
+}
+
+<body class="main">
+    <div class="navbar">
+        <div class="navbar-panel">
+            <div class="content-row">
+                <label id="title">Scholar Sift</label>
+            </div>
+            <div class="content-row" style="margin-top: 15px;">
+                <input id="searchbar" placeholder="Makale Ara">
+                <button id="searchbutton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(247, 99, 7, 1);"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path><path d="M11.412 8.586c.379.38.588.882.588 1.414h2a3.977 3.977 0 0 0-1.174-2.828c-1.514-1.512-4.139-1.512-5.652 0l1.412 1.416c.76-.758 2.07-.756 2.826-.002z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="result-panel">
+            <div class="result-panel-title" style="margin-top: 10px;margin-bottom: 10px;">
+                <label class="content-title">Arama Sonuçları</label>
+            </div>
+            <div class="result">
+                <div class="result-content">
+                    <label class="result-label-1">Makale ID :</label>
+                    <label class="result-label">Metalurji Mühendisliği</label>
+                </div>
+                <div class="result-content">
+                    <label class="result-label-1">Makale Başlığı :</label>
+                    <label class="result-label">Metalurji Mühendisliği</label>
+                </div>
+                <div class="result-content">
+                    <label class="result-label-1">Makale İçeriği :</label>
+                    <label class="result-label">kes sesini</label>
+                </div>
+                <div class="result-detail">
+                    <a href="#" id="detail" class="r-detail">Detay</a>
+                    <a href="#" id="delete" class="r-detail">Sil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .main {
+        margin: 0px;
+        padding: 0;
+        height: 100vh;
+        background-image: linear-gradient(45deg, #a0ebdc, #eba57a);
+        align-content: center;
+        justify-content: center;
+    }
+    .navbar {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .navbar-panel {
+        height: 100px;
+        width: 450px;
+        background-image: linear-gradient(45deg, #f76307, #57d9bf);
+        border-radius: 15px;
+        margin-top: 10px;
+        opacity: 0.8;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #title {
+        font-size:x-large;
+        font-weight: bolder;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #searchbar{
+        width: 300px;
+        height: 40px;
+        font-size: medium;
+        padding-left: 20px;
+        border-radius: 40px;
+        border: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #searchbar:focus {
+        outline: none;
+        border: 2px solid #57d9bf;
+    }
+    #searchbutton {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        border: none;
+        background-color: white;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #searchbutton :hover {
+        border: 2px solid #57d9bf;
+    }
+    .result-panel {
+        height: auto;
+        width: 600px;
+        background-image: linear-gradient(45deg, #eba57a, #a0ebdc);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .content-title {
+        font-size: large;
+        font-weight: bolder;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .result-panel-title{
+        width: 150px;
+    }
+    .result {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        width: 550px;
+        height: 150px;
+        opacity: 0.8;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    .result-content {
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    .result-label {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 300;
+    }
+    .result-label-1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+        color: #f76307;
+    }
+    .result-detail {
+        display:inline-flex;
+        position:relative;
+        align-items:center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    #detail, #delete {
+        height: 50px;
+        width: 70px;
+        border-radius: 15px;
+        margin-left: 10px;
+        border: 2px solid #57d9bf;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #57d9bf;
+        text-decoration: none;
+    }
+    #detail :hover {
+        border: 2px solid #f76307;
+        color: #f76307;
+    }
+    #delete :hover {
+        border: 2px solid #f76307;
+        color: #f76307;
+    }
+</style>

@@ -8,6 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
+        <PackageReference Include="HtmlAgilityPack.CssSelectors" Version="1.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14"/>
         <PackageReference Include="MongoDB.Bson" Version="2.24.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
