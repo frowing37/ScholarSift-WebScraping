@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using ScholarSift_Data.Services;
 using ScholarSift_Entity.Concrete;
+using ScholarSift_UI.Models;
 
 namespace ScholarSift_Api.Controllers;
 
@@ -36,11 +37,15 @@ public class ArticleController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] Article article)
+    public async Task<IActionResult> Post([FromBody] ArticleDto articleDto)
     {
+        Article article = new Article();
+        article.Link = articleDto.DocumentLink;
+        article.Name = articleDto.DocumentName;
+        
         await _articleService.CreateAsync(article);
 
-        return CreatedAtAction(nameof(Get), new { id = article.Id },article);
+        return CreatedAtAction(nameof(Get), new { id = articleDto.Id },articleDto);
     }
 
     [HttpPut("{id:length(24)}")]

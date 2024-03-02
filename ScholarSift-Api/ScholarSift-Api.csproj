@@ -18,6 +18,7 @@
     <ItemGroup>
       <ProjectReference Include="..\ScholarSift-Data\ScholarSift-Data.csproj" />
       <ProjectReference Include="..\ScholarSift-Entity\ScholarSift-Entity.csproj" />
+      <ProjectReference Include="..\ScholarSift-UI\ScholarSift-UI.csproj" />
     </ItemGroup>
 
 </Project>

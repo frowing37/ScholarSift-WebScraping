@@ -1,6 +1,7 @@
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using ScholarSift_Entity.Concrete;
+using ScholarSift_UI.Models;
 
 namespace ScholarSift_Api.Controllers;
 
@@ -9,8 +10,10 @@ namespace ScholarSift_Api.Controllers;
 public class ScrapeController : Controller
 {
     [HttpPost]
-    public async Task<IActionResult> Scrape(string search)
+    public async Task<IActionResult> Scrape(MainSearchDto mainSearchDto)
     {
+        string search = mainSearchDto.SearchText;
+        
         if (search != string.Empty || search is not null)
         {
             search.Replace(' ', '+');
@@ -23,7 +26,7 @@ public class ScrapeController : Controller
             var data = nodes.Select((node) => {
                 return new Scrape() {
                     DocumentName = node.QuerySelector("h3 a").InnerText,
-                    DocumentLink = node.QuerySelector("h3 a").GetAttributeValue("href","heyyaaaaaaa") 
+                    DocumentLink = node.QuerySelector("h3 a").GetAttributeValue("href","heyyaaaaaaa")
                 };
             });
 
