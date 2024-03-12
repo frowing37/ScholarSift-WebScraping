@@ -14,4 +14,7 @@ public class Article
     
     [BsonElement("Link")]
     public string Link { get; set; }
+    
+    [BsonElement("File")]
+    public BsonDocument Pdf { get; set; }
 }
