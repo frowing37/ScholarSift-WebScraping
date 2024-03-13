@@ -13,4 +13,8 @@ public class Scrape
     public string DocumentQuotes { get; set; }
     
     public string DocumentFileLink { get; set; }
+    
+    public string DocumentPublishDate { get; set; }
+    
+    public string DocumentWritersName { get; set; }
 }
