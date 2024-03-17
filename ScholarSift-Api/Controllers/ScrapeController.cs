@@ -34,7 +34,8 @@ public class ScrapeController : Controller
                     node.QuerySelector("div.gs_ri").QuerySelector("div.gs_fl.gs_flb")
                         .QuerySelector("a[href^=\"/scholar?cites=\"]").InnerText ?? "Belirtilen Öğe Bulunamadı";
                 var documentFileLink = node.QuerySelector("div.gs_ggs.gs_fl div.gs_ggsd div.gs_or_ggsm a")?
-                    .GetAttributeValue("href", string.Empty) ?? "Doküman linki bırakılmamış";
+                    .GetAttributeValue("href", string.Empty) ?? "Doküman linki bulunamadı";
+                var documentBrief = node.QuerySelector("div.gs_ri div.gs_rs")?.InnerText ?? "Doküman özeti bulunamadı";
                 
                 //Alıntı sayısı ayrışıyor
                 int index = documentQuotes.IndexOf(':');
@@ -64,6 +65,7 @@ public class ScrapeController : Controller
                 int firstWriterNameIndex = 0;
                 int writerNameCounter = 0;
                 int writerSpaceCounter = 0;
+                int publisherIndex = 0;
                 string documentWritersName = " ";
                 for (int i = 0; i < documentDescription.Length; i++)
                 {
@@ -78,8 +80,11 @@ public class ScrapeController : Controller
                         documentWritersName = documentDescription.Substring(firstWriterNameIndex, i - firstWriterNameIndex).Trim() + ", ";
                         writerNameCounter = 0;
                         writerSpaceCounter = 0;
-                        if(documentDescription[i] == '-')
+                        if (documentDescription[i] == '-')
+                        {
+                            publisherIndex = i;
                             break;
+                        }
                     }
                     else if(char.IsUpper(documentDescription[i]))
                     {
@@ -89,20 +94,48 @@ public class ScrapeController : Controller
                     }
                 }
                 
-                //
-                
-                
-                
+                //Yayımcı adı
+                int publisherFirstIndex = 0;
+                int publisherCounter = 0;
+                string documentPublisher = string.Empty;
+                for (int i = publisherIndex; i < documentDescription.Length; i++)
+                {
+                    if (documentDescription[i] == '-' || documentDescription[i] == ',')
+                    {
+                        if(publisherCounter == 0)
+                            publisherFirstIndex = i + 1;
+                        else
+                        {
+                            documentPublisher += documentDescription.Substring(publisherFirstIndex, i - publisherFirstIndex);
+                            break;
+                        }
+                    }
+                    else if (char.IsLetter(documentDescription[i]) || documentDescription[i] == ' ')
+                    {
+                        publisherCounter++;
+                    }
+                }
+
+                for (int i = 0; i < documentPublisher.Length; i++)
+                {
+                    if (char.IsDigit(documentPublisher[i]))
+                    {
+                        documentPublisher = "Yayımcı kaynağı bulunamadı";
+                        break;
+                    }
+                }
                 
                 //Scrape nesnesi oluşturuluyor
                 return new Scrape() {
                     DocumentLink = documentLink,
                     DocumentName = documentName,
-                    DocumentDescription = documentDescription,
                     DocumentQuotes = numberofQuotes.Trim(),
                     DocumentFileLink = documentFileLink,
                     DocumentPublishDate = documentPublishDate,
-                    DocumentWritersName = documentWritersName.TrimEnd()
+                    DocumentWritersName = documentWritersName.TrimEnd(),
+                    DocumentPublisher = documentPublisher ?? "Bulunamadı",
+                    DocumentBrief = documentBrief,
+                    DocumentKeyWords = search
                 };
             });
             

@@ -21,12 +21,21 @@ public class Article
     [BsonElement("PublishDate")]
     public string PublishDate { get; set; }
     
+    [BsonElement("Publisher")]
+    public string Publisher { get; set; }
+    
+    [BsonElement("Brief")]
+    public string Brief { get; set; }
+    
     [BsonElement("WritersName")]
     public string WritersName { get; set; }
+    
+    [BsonElement("Keywords")]
+    public string Keywords { get; set; }
     
     [BsonElement("FileLink")]
     public string FileLink { get; set; }
     
     [BsonElement("File")]
-    public BsonDocument Pdf { get; set; }
+    public byte[] Pdf { get; set; }
 }

@@ -42,6 +42,14 @@ public class ArticleController : Controller
         Article article = new Article();
         article.Link = articleDto.DocumentLink;
         article.Name = articleDto.DocumentName;
+        article.Brief = articleDto.DocumentBrief;
+        article.Pdf = articleDto.Pdf;
+        article.Keywords = articleDto.DocumentKeyWords;
+        article.Publisher = articleDto.DocumentPublisher;
+        article.Quates = articleDto.DocumentQuotes;
+        article.FileLink = articleDto.DocumentFileLink;
+        article.PublishDate = articleDto.DocumentPublishDate;
+        article.WritersName = articleDto.DocumentWritersName;
         
         await _articleService.CreateAsync(article);
 

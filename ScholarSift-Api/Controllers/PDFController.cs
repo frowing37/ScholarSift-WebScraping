@@ -11,21 +11,12 @@ namespace ScholarSift_Api.Controllers;
 public class PDFController : Controller
 {
     private readonly PDFService _pdfService;
-
     public PDFController(PDFService pdfService) => _pdfService = pdfService;
     
     [HttpPost]
-    public IActionResult ReadPDF(FileNameDto fileNameDto)
+    public IActionResult InstallPDF(PdfDto pdf)
     {
-        string pdfContent;
-        
-        using (PdfReader pdfReader = new PdfReader(fileNameDto.Filename))
-        {
-            using (PdfDocument pdfDocument = new PdfDocument(pdfReader))
-            {
-                
-            }
-        }
+        _pdfService.DownloadPdf(pdf.FileUrl,pdf.FileName);
         
         return Ok();
     }

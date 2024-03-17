@@ -9,13 +9,15 @@ namespace ScholarSift_Data.Services;
 
 public class PDFService
 {
-    private static string localStoragePath = "~/files/";
-    
-    public static void DownloadPdf(string url)
+    private static string localStoragePath = "/Users/frowing/Projects/ScholarSift/ScholarSift-UI/wwwroot/files";
+    public async Task DownloadPdf(string url,string filename)
     {
+        if(filename.Contains(' '))
+            filename = filename.Replace(' ','_');
+        
         using (WebClient client = new WebClient())
         {
-            client.DownloadFile(url, localStoragePath);
+            client.DownloadFile(url, localStoragePath + "/" + filename + ".pdf");
         }
     }
 }
