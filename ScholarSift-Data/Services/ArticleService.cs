@@ -19,6 +19,9 @@ public class ArticleService
 
     public async Task<List<Article>> GetAsync() => await _collection.Find(_ => true).ToListAsync();
     public async Task<Article> GetAsync(string id) => await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
+    public async Task<List<Article>> GetFilterListAsync(string keyword) =>
+        await _collection.Find(x => x.Keywords == keyword).ToListAsync();
     public async Task CreateAsync(Article article) => await _collection.InsertOneAsync(article);
     public async Task UpdateAsync(Article article) => await _collection.ReplaceOneAsync(x => x.Id == article.Id, article);
     public async Task RemoveAsync(string id) => await _collection.DeleteOneAsync(x => x.Id == id);

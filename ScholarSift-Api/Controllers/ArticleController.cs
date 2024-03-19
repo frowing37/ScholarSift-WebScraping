@@ -36,6 +36,17 @@ public class ArticleController : Controller
         return NotFound();
     }
 
+    [HttpGet("{keyword}")]
+    public async Task<IActionResult> GetList(string keyword)
+    {
+        var articles = await _articleService.GetFilterListAsync(keyword);
+
+        if (articles.Any())
+            return Ok(articles);
+
+        return NotFound();
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] ArticleDto articleDto)
     {
@@ -43,7 +54,7 @@ public class ArticleController : Controller
         article.Link = articleDto.DocumentLink;
         article.Name = articleDto.DocumentName;
         article.Brief = articleDto.DocumentBrief;
-        article.Pdf = articleDto.Pdf;
+        article.Pdf = articleDto.Pdf ?? null;
         article.Keywords = articleDto.DocumentKeyWords;
         article.Publisher = articleDto.DocumentPublisher;
         article.Quates = articleDto.DocumentQuotes;
